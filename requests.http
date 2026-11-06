@@ -1,0 +1,26 @@
+### Get all movies
+GET http://localhost:3000/movies
+
+### Get movie by ID
+GET http://localhost:3000/movies/1
+
+### Movie that does not exist
+GET http://localhost:3000/movies/999
+
+### Create a new movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Blade Runner",
+  "director": "Ridley Scott",
+  "year": 1982
+}
+
+### Invalid movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "director": "Nobody"
+}
