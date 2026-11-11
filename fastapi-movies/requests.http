@@ -1,0 +1,67 @@
+### Get all movies
+GET http://localhost:8000/movies
+
+### Get one movie
+GET http://localhost:8000/movies/1
+
+### Get a missing movie
+GET http://localhost:8000/movies/999
+
+### Create a valid movie
+POST http://localhost:8000/movies
+Content-Type: application/json
+
+{
+  "title": "Arrival",
+  "director": "Denis Villeneuve",
+  "year": 2016,
+  "genre": "Sci-Fi"
+}
+
+### Create an invalid movie
+POST http://localhost:8000/movies
+Content-Type: application/json
+
+{
+  "title": "",
+  "year": "not a number"
+}
+
+### Replace a movie
+PUT http://localhost:8000/movies/1
+Content-Type: application/json
+
+{
+  "title": "The Matrix",
+  "director": "The Wachowskis",
+  "year": 1999,
+  "genre": "Sci-Fi"
+}
+
+### Invalid incomplete PUT
+PUT http://localhost:8000/movies/1
+Content-Type: application/json
+
+{
+  "title": "The Matrix"
+}
+
+### Partially update a movie
+PATCH http://localhost:8000/movies/1
+Content-Type: application/json
+
+{
+  "year": 2000
+}
+
+### Filter and sort movies
+GET http://localhost:8000/movies?genre=Sci-Fi&minYear=2000&sort=year
+
+### Delete a movie
+DELETE http://localhost:8000/movies/1
+
+### Delete the same movie again
+DELETE http://localhost:8000/movies/1
+
+### Unknown route
+GET http://localhost:8000/does-not-exist
