@@ -30,6 +30,29 @@ Content-Type: application/json
   "year": "not a number"
 }
 
+### Wrong data type
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": 123,
+  "director": "Denis Villeneuve",
+  "year": 2016,
+  "genre": "Sci-Fi"
+}
+
+### Unknown property
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Arrival",
+  "director": "Denis Villeneuve",
+  "year": 2016,
+  "genre": "Sci-Fi",
+  "INVALID_PROPERTY": "Hi!"
+}
+
 ### Replace a movie
 PUT http://localhost:3000/movies/1
 Content-Type: application/json
